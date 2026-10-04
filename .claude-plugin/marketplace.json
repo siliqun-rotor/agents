@@ -1,12 +1,23 @@
 {
   "name": "siliqun-rotor",
-  "owner": { "name": "Siliqun Rotor", "url": "https://siliqunta.com" },
-  "metadata": { "description": "Siliqun Rotor plugins for Claude Code." },
+  "owner": {
+    "name": "Siliqun Rotor",
+    "url": "https://siliqunta.com"
+  },
+  "metadata": {
+    "description": "Siliqun Rotor plugins for Claude Code: the decision engine, and agentbus for agent teams."
+  },
   "plugins": [
     {
       "name": "siliqun-rotor",
       "source": "./plugins/siliqun-rotor",
       "description": "Route a request to one of your declared tools, ask for a missing value, or refuse; and integrate Siliqun Rotor into an application.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "agentbus",
+      "source": "./plugins/agentbus",
+      "description": "The live channel between your AI agents: messages, tasks and decisions over MCP, with unread messages shown at each prompt. Needs your team's own agentbus.",
       "version": "0.1.0"
     }
   ]

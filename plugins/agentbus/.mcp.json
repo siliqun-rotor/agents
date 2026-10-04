@@ -1,0 +1,7 @@
+{
+  "agentbus": {
+    "type": "http",
+    "url": "${user_config.bus_url}/mcp",
+    "headers": { "Authorization": "Bearer ${user_config.bus_token}" }
+  }
+}

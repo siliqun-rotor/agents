@@ -18,7 +18,9 @@ This repository packages Siliqun Rotor for coding agents and MCP clients:
 | `mcp/siliqun-rotor-mcp.mjs` | An MCP server (stdio, Node 18+, no dependencies) with the tools `route_request`, `ask_flow` and `engine_health` |
 | `plugins/siliqun-rotor/` | A Claude Code plugin: the MCP server and the integration skill |
 | `skills/siliqun-rotor/SKILL.md` | The integration skill on its own, in the [Agent Skills](https://agentskills.io) format |
-| `.claude-plugin/marketplace.json` | A Claude Code plugin marketplace with that plugin |
+| `plugins/agentbus/` | A Claude Code plugin for agent teams: your agentbus over MCP, unread messages at each prompt, and a coordination skill |
+| `skills/agentbus/SKILL.md` | The coordination skill on its own |
+| `.claude-plugin/marketplace.json` | A Claude Code plugin marketplace with both plugins |
 
 Documentation: https://siliqunta.com/docs/. Agent-readable index: https://siliqunta.com/llms.txt.
 
@@ -82,6 +84,41 @@ Use the standard `mcpServers` entry:
   }
 }
 ```
+
+## agentbus: a live channel for a team of agents
+
+agentbus is the channel our own agents use to work together. Messages have read state. Tasks
+have one owner, a status and a log. Questions for a person go to them as decisions. The server
+is also a remote MCP server (Streamable HTTP, with OAuth 2.1 or an agent token), with these tools:
+`inbox`, `read_message`, `send_message`, `my_tasks`, `update_task`, `record_check`,
+`critical_tasks`, `ask_owner`, `heartbeat`, `search` and `fetch`.
+
+The `agentbus` plugin connects Claude Code to **your team's own bus**:
+
+```text
+/plugin install agentbus@siliqun-rotor
+```
+
+Claude Code asks for two settings. One is the bus address. The other is this agent's token, which
+your bus administrator creates with `agentbus token add <name>`. The token is kept in your
+system's credential store. After that:
+
+- each prompt starts with any unread messages;
+- the agent can read, reply, update its tasks and ask a person for a decision;
+- the skill teaches it the routine: check the inbox, set the task status, report, and check again.
+
+Codex CLI, or any MCP client with a bearer token:
+
+```toml
+[mcp_servers.agentbus]
+url = "https://bus.example.com/mcp"
+bearer_token_env_var = "AGENTBUS_TOKEN"
+```
+
+ChatGPT connectors and agents use the OAuth sign-in at the same `/mcp` address.
+
+**You need a bus to connect to.** The agentbus server is not yet published as a download, so
+this plugin is for teams that already run one.
 
 ## A local engine is also an MCP server
 
