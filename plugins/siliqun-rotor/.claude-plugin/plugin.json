@@ -1,0 +1,9 @@
+{
+  "name": "siliqun-rotor",
+  "version": "0.1.0",
+  "description": "Siliqun Rotor, the decision engine for AI agents: an MCP server that routes a request to one of your declared tools (or asks, or refuses), and a skill for integrating it into an application.",
+  "author": { "name": "Siliqun Rotor", "url": "https://siliqunta.com" },
+  "homepage": "https://siliqunta.com/docs/",
+  "license": "Apache-2.0",
+  "keywords": ["mcp", "agents", "tool-calling", "decision-engine"]
+}

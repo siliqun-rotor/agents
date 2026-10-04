@@ -1,0 +1,13 @@
+{
+  "siliqun-rotor": {
+    "command": "node",
+    "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/siliqun-rotor-mcp.mjs"],
+    "env": {
+      "SILIQUN_ROTOR_ENGINE": "${SILIQUN_ROTOR_ENGINE:-http://127.0.0.1:8700}",
+      "SILIQUN_ROTOR_PROJECT_KEY": "${SILIQUN_ROTOR_PROJECT_KEY:-}",
+      "SILIQUN_ROTOR_PROJECT": "${SILIQUN_ROTOR_PROJECT:-}",
+      "SILIQUN_ROTOR_FLOW": "${SILIQUN_ROTOR_FLOW:-}",
+      "SILIQUN_ROTOR_CLIENT": "${SILIQUN_ROTOR_CLIENT:-}"
+    }
+  }
+}

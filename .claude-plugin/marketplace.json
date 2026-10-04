@@ -1,0 +1,13 @@
+{
+  "name": "siliqun-rotor",
+  "owner": { "name": "Siliqun Rotor", "url": "https://siliqunta.com" },
+  "metadata": { "description": "Siliqun Rotor plugins for Claude Code." },
+  "plugins": [
+    {
+      "name": "siliqun-rotor",
+      "source": "./plugins/siliqun-rotor",
+      "description": "Route a request to one of your declared tools, ask for a missing value, or refuse; and integrate Siliqun Rotor into an application.",
+      "version": "0.1.0"
+    }
+  ]
+}
