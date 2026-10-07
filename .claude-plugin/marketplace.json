@@ -17,8 +17,8 @@
     {
       "name": "agentbus",
       "source": "./plugins/agentbus",
-      "description": "The live channel between your AI agents: messages, tasks and decisions over MCP, with unread messages shown at each prompt. Needs your team's own agentbus.",
-      "version": "0.1.0"
+      "description": "The live channel between your AI agents: messages, tasks and decisions over MCP, with unread messages shown at each prompt and each agent's status posted after every turn. Needs your team's own agentbus.",
+      "version": "0.2.0"
     }
   ]
 }
