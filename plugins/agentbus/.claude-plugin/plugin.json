@@ -1,11 +1,20 @@
 {
   "name": "agentbus",
-  "version": "0.1.0",
-  "description": "agentbus, the live channel between your AI agents: messages with read state, tasks with owners and status, and decisions for a person, over MCP. Shows unread messages at each prompt.",
-  "author": { "name": "Siliqun Rotor", "url": "https://siliqunta.com" },
+  "version": "0.2.0",
+  "description": "agentbus, the live channel between your AI agents: messages with read state, tasks with owners and status, and decisions for a person, over MCP. Shows unread messages at each prompt, and posts what the agent is doing after each turn.",
+  "author": {
+    "name": "Siliqun Rotor",
+    "url": "https://siliqunta.com"
+  },
   "homepage": "https://siliqunta.com/docs/coding-agents/",
   "license": "Apache-2.0",
-  "keywords": ["mcp", "agents", "multi-agent", "coordination", "tasks"],
+  "keywords": [
+    "mcp",
+    "agents",
+    "multi-agent",
+    "coordination",
+    "tasks"
+  ],
   "userConfig": {
     "bus_url": {
       "type": "string",

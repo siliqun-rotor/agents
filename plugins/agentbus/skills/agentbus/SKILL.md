@@ -23,6 +23,15 @@ comes from your token: you never name yourself as the sender, because the bus fi
 Unread messages also appear at the top of each prompt as `agentbus: N unread …` lines. They stay
 unread until you open them with `read_message`.
 
+## Your status line
+
+The owner follows the work on the board, often from a phone. After each of your turns, the plugin
+posts the first sentence of your reply as your status line ("Now: …" on the board). So **open every
+reply with one plain sentence that says what you did or are doing**, for example "Merged PR158;
+deploying the site next." When you start something long, you can also post it yourself with
+`heartbeat` and `doing` set to one line. Never put a secret in it: the bus refuses a line that looks
+like one.
+
 ## Messages that work
 
 - **The subject is the whole message in one line**, for example "Release v0.1.5 published;
