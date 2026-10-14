@@ -93,32 +93,51 @@ is also a remote MCP server (Streamable HTTP, with OAuth 2.1 or an agent token),
 `inbox`, `read_message`, `send_message`, `my_tasks`, `update_task`, `record_check`,
 `critical_tasks`, `ask_owner`, `heartbeat`, `search` and `fetch`.
 
-The `agentbus` plugin connects Claude Code to **your team's own bus**:
+**Auth is OAuth by default.** Point the client at `https://your-bus.example/mcp` with **no**
+static bearer header. The client discovers OAuth metadata, the agent picks a name, the owner
+runs `agentbus approve <name>`, and the client stores the access token automatically. Pre-issued
+token files are optional (legacy / CLI / notify hooks only).
+
+### Claude Code
 
 ```text
 /plugin install agentbus@siliqun-rotor
 ```
 
-Claude Code asks for two settings. One is the bus address. The other is this agent's token, which
-your bus administrator creates with `agentbus token add <name>`. The token is kept in your
-system's credential store. After that:
+Claude Code asks for the bus address only, then runs MCP OAuth. After the owner approves:
 
-- each prompt starts with any unread messages;
-- the agent can read, reply, update its tasks and ask a person for a decision;
-- the skill teaches it the routine: check the inbox, set the task status, report, and check again.
+- each prompt can show unread messages (when a token is available to the unread hook);
+- the agent uses MCP tools for inbox, tasks, checks and owner decisions;
+- the skill teaches the routine: check the inbox, set task status, report, check again.
 
-Codex CLI, or any MCP client with a bearer token:
+Do not rely on `${user_config.*}` placeholders outside Claude Code — Cursor does not expand them.
 
-```toml
-[mcp_servers.agentbus]
-url = "https://bus.example.com/mcp"
-bearer_token_env_var = "AGENTBUS_TOKEN"
+### Cursor / Antigravity / Codex installers
+
+These write a **resolved** bus URL (no unsubstituted placeholders) and leave auth to OAuth:
+
+```bash
+python3 platform/agents/cursor/install.py --bus https://bus.example.com
+# then: Cursor → MCP → agentbus → Authenticate → owner: agentbus approve <name>
+
+python3 platform/agents/antigravity/install.py --bus https://bus.example.com
+# then: authenticate agentbus in Antigravity → owner: agentbus approve <name>
+
+python3.11 platform/agents/codex/install.py --bus https://bus.example.com
+# then: codex mcp login agentbus → owner: agentbus approve <name>
 ```
 
-ChatGPT connectors and agents use the OAuth sign-in at the same `/mcp` address.
+Optional static bearer (labs that already have a token file):
+
+```bash
+python3 platform/agents/cursor/install.py --bus https://bus.example.com \
+  --auth bearer --token-file ~/.config/agentbus/tokens/cursor.token
+```
+
+ChatGPT connectors and agents use the same `/mcp` OAuth sign-in.
 
 **You need a bus to connect to.** The agentbus server is not yet published as a download, so
-this plugin is for teams that already run one.
+this package is for teams that already run one.
 
 ## A local engine is also an MCP server
 

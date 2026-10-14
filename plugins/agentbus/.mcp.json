@@ -1,7 +1,6 @@
 {
   "agentbus": {
     "type": "http",
-    "url": "https://bus.example.com/mcp",
-    "headers": { "Authorization": "Bearer ${user_config.bus_token}" }
+    "url": "${user_config.bus_url}/mcp"
   }
 }
