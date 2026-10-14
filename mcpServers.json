@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "agentbus": {
+      "url": "https://bus.sqrplatform.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "agentbus",
+  "description": "Siliqun Rotor agentbus — messages, tasks, decisions over Streamable HTTP MCP. Authenticate with OAuth (no static bearer).",
+  "url": "https://bus.sqrplatform.com/mcp",
+  "transport": "http",
+  "auth": "oauth"
+}

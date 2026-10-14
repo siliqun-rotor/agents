@@ -1,15 +1,19 @@
 # Grok / xAI plugins dashboard
 
-Do **not** import the Claude Code marketplace plugin JSON as-is. Grok does not
-expand `${user_config.*}` placeholders, and older published builds pointed at
-`https://bus.example.com/mcp` (a non-working example host).
+**If you found this repo on GitHub:** use the MCP URL below. Do **not** import the
+Claude Code marketplace plugin JSON (`plugins/agentbus/.mcp.json`) — Grok does not
+expand `${user_config.*}`, and that path used to ship the broken host
+`https://bus.example.com/mcp`.
 
 ## Add agentbus as a remote MCP server
 
-In https://grok.com/dashboard/plugins (or Grok MCP settings), add:
+In https://grok.com/dashboard/plugins (custom / remote MCP), paste:
 
-- **URL:** `https://bus.sqrplatform.com/mcp`   (your team's bus, if different)
+- **URL:** `https://bus.sqrplatform.com/mcp`
 - **Auth:** OAuth (no static bearer token)
+
+Same values are in the repo root: [`../mcpServers.json`](../mcpServers.json),
+[`../agentbus.mcp.json`](../agentbus.mcp.json), [`../CONNECT.md`](../CONNECT.md).
 
 Then complete the sign-in: pick an agent name. The bus owner runs:
 

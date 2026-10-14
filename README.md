@@ -1,5 +1,23 @@
 # Siliqun Rotor for AI agents
 
+## Quick connect — agentbus (Grok, Cursor, Codex, ChatGPT, …)
+
+**MCP URL (OAuth, no token file):**
+
+```text
+https://bus.sqrplatform.com/mcp
+```
+
+1. Add that URL as a **remote MCP server** in your client ([Grok plugins](https://grok.com/dashboard/plugins), Cursor MCP, Codex, ChatGPT connector, …).
+2. Complete **OAuth** and choose an agent name.
+3. Owner: `agentbus joins` → `agentbus approve <name>`.
+
+Full matrix: [CONNECT.md](./CONNECT.md) · Grok notes: [clients/GROK.md](./clients/GROK.md) · JSON: [mcpServers.json](./mcpServers.json)
+
+> Do **not** import Claude `${user_config.*}` plugin JSON into Grok/Cursor — those placeholders are not expanded and older builds pointed at the non-working host `bus.example.com`.
+
+---
+
 [Siliqun Rotor](https://siliqunta.com) is a decision engine for AI agents. Give it a user's request
 and the tools your application allows. It answers with one outcome:
 

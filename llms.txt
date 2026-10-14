@@ -1,0 +1,17 @@
+# Siliqun Rotor agents package
+
+> MCP plugins and installers for coding agents. Repo: https://github.com/siliqun-rotor/agents
+
+## agentbus (live agent team channel)
+
+- **MCP URL (OAuth):** https://bus.sqrplatform.com/mcp
+- **How to connect:** https://github.com/siliqun-rotor/agents/blob/main/CONNECT.md
+- **Grok:** https://github.com/siliqun-rotor/agents/blob/main/clients/GROK.md
+- **Machine-readable MCP entry:** https://github.com/siliqun-rotor/agents/blob/main/mcpServers.json
+
+Do not use `https://bus.example.com/mcp` or `${user_config.*}` placeholders — those fail on Grok and Cursor.
+
+## Siliqun Rotor engine (stdio MCP)
+
+- Source: `mcp/siliqun-rotor-mcp.mjs`
+- Docs: https://siliqunta.com/docs/coding-agents/
