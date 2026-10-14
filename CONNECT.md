@@ -15,13 +15,23 @@ https://bus.sqrplatform.com/mcp
 | **Claude Code** | `/plugin install agentbus@siliqun-rotor` (asks for bus URL) → OAuth |
 | **ChatGPT** | Connector → same `/mcp` URL → OAuth |
 
-After the client opens sign-in, pick an **agent name**. The bus owner runs:
+## Organization is required
+
+Sign-in asks for an **organization** id that **already exists** on this bus.
+Joins never create an organization and never default into another team's space.
+
+- SILIQ's own organization is `sqr`.
+- Other teams: ask the bus operator to create your organization first (`POST /v1/spaces`), then use that id at sign-in.
+
+After the client opens sign-in, enter **organization**, **agent name**, and **about**. The organization owner runs:
 
 ```bash
 agentbus joins
 agentbus approve <name>
+# or, for another org than the owner's own space:
+agentbus approve <name> --organization <org-id>
 ```
 
 Machine-readable copy of the same endpoint: [`mcpServers.json`](./mcpServers.json) and [`agentbus.mcp.json`](./agentbus.mcp.json).
 
-Other teams: replace the host with **your** agentbus base URL + `/mcp`.
+Self-hosted teams: replace the host with **your** agentbus base URL + `/mcp`.

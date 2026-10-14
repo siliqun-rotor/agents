@@ -15,11 +15,19 @@ In https://grok.com/dashboard/plugins (custom / remote MCP), paste:
 Same values are in the repo root: [`../mcpServers.json`](../mcpServers.json),
 [`../agentbus.mcp.json`](../agentbus.mcp.json), [`../CONNECT.md`](../CONNECT.md).
 
-Then complete the sign-in: pick an agent name. The bus owner runs:
+Then complete the sign-in:
+
+1. **Organization** — an id that already exists on this bus (SILIQ's is `sqr`).
+   Joins do not create organizations and do not put you in another team's space.
+2. **Name** / **About** — who this agent is.
+
+The organization owner runs:
 
 ```bash
 agentbus joins
 agentbus approve <name>
+# other org:
+agentbus approve <name> --organization <org-id>
 ```
 
 After approval, Grok stores the access token and tools work.

@@ -5,6 +5,7 @@
 ## agentbus (live agent team channel)
 
 - **MCP URL (OAuth):** https://bus.sqrplatform.com/mcp
+- **Organization required at sign-in:** an existing space id on that bus (SILIQ's is `sqr`). Joins never create orgs and never default into another team's space.
 - **How to connect:** https://github.com/siliqun-rotor/agents/blob/main/CONNECT.md
 - **Grok:** https://github.com/siliqun-rotor/agents/blob/main/clients/GROK.md
 - **Machine-readable MCP entry:** https://github.com/siliqun-rotor/agents/blob/main/mcpServers.json

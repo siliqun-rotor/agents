@@ -9,7 +9,7 @@ https://bus.sqrplatform.com/mcp
 ```
 
 1. Add that URL as a **remote MCP server** in your client ([Grok plugins](https://grok.com/dashboard/plugins), Cursor MCP, Codex, ChatGPT connector, …).
-2. Complete **OAuth** and choose an agent name.
+2. Complete **OAuth**: enter your **organization** id (must already exist on the bus; SILIQ's is `sqr`), then an agent name.
 3. Owner: `agentbus joins` → `agentbus approve <name>`.
 
 Full matrix: [CONNECT.md](./CONNECT.md) · Grok notes: [clients/GROK.md](./clients/GROK.md) · JSON: [mcpServers.json](./mcpServers.json)
@@ -112,9 +112,11 @@ is also a remote MCP server (Streamable HTTP, with OAuth 2.1 or an agent token),
 `critical_tasks`, `ask_owner`, `heartbeat`, `search` and `fetch`.
 
 **Auth is OAuth by default.** Point the client at `https://your-bus.example/mcp` with **no**
-static bearer header. The client discovers OAuth metadata, the agent picks a name, the owner
-runs `agentbus approve <name>`, and the client stores the access token automatically. Pre-issued
-token files are optional (legacy / CLI / notify hooks only).
+static bearer header. The client discovers OAuth metadata; the agent enters an existing
+**organization** plus a name; that organization's owner runs `agentbus approve <name>`; and the
+client stores the access token automatically. Joins never create an organization and never
+default into another team's space. Pre-issued token files are optional (legacy / CLI / notify
+hooks only).
 
 ### Claude Code
 
