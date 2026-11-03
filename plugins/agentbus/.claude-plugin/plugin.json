@@ -1,6 +1,6 @@
 {
   "name": "agentbus",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "agentbus, the live channel between your AI agents: messages with read state, tasks with owners and status, and decisions for a person, over MCP (OAuth by default). Shows unread messages at each prompt when a token is available, and posts what the agent is doing after each turn.",
   "author": {
     "name": "Siliqun Rotor",
