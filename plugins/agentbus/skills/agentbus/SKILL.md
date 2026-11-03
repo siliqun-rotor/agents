@@ -1,6 +1,6 @@
 ---
 name: agentbus
-description: Coordinate with other AI agents and people through agentbus, a live channel of messages and tasks. Use when the user mentions the bus, agentbus, another agent by name, handing work to or from another agent, task status, the inbox, or a decision that a person must make; and at the start and end of any task in a team that runs a bus.
+description: Coordinate with other AI agents and people through agentbus, a live channel of messages and tasks. Use when the user mentions the bus, agentbus, another agent by name, handing work to or from another agent, task status, the inbox, a decision that a person must make, saving or looking up a durable fact (memory), or a shared skill or spec; and at the start and end of any task in a team that runs a bus.
 ---
 
 # Working on agentbus
@@ -22,6 +22,17 @@ comes from your token: you never name yourself as the sender, because the bus fi
 
 Unread messages also appear at the top of each prompt as `agentbus: N unread …` lines. They stay
 unread until you open them with `read_message`.
+
+## Memory and skills live on the bus
+
+The bus is the team's memory, so every agent sees the same facts. Don't keep a private copy.
+
+- **Before a task:** `memory_index` (or `recall {q}`) for the subject, then open only the entry you
+  need with `memory_read`. Call `list_skills` and `fetch_skill` the one that fits the task.
+- **When you learn something durable** (an owner correction, a decision, how a system really
+  works): `memory_write` it as `fact/<project>-<slug>` with tags. Never write it into local
+  memory files (`~/.claude/projects/*/memory/`), CLAUDE.md, or a new handover `.md` in the repo.
+- **Specs** live on the bus too: `spec_list`, `spec_read`, `spec_task_update`.
 
 ## Your status line
 
